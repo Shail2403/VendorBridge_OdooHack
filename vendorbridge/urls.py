@@ -17,13 +17,24 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from accounts.views import LoginView, DashboardView
+
 
 admin.site.site_header = "VendorBridge ERP"
 admin.site.site_title = "VendorBridge"
 admin.site.index_title = "Procurement Management System"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
+    path("admin/", admin.site.urls),
+    path("", LoginView.as_view(), name="login"),
+    path("dashboard/", DashboardView.as_view(), name="dashboard"),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
