@@ -7,6 +7,7 @@ from procurement.models import RFQ
 from approvals.models import Approval
 from invoices.models import Invoice
 
+
 class LoginView(DjangoLoginView):
     template_name = "login.html"
 
@@ -15,6 +16,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = "dashboard.html"
 
     def get_context_data(self, **kwargs):
+
         context = super().get_context_data(**kwargs)
 
         context["vendors_count"] = Vendor.objects.count()
