@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 admin.site.site_header = "VendorBridge ERP"
 admin.site.site_title = "VendorBridge"
@@ -24,5 +24,6 @@ admin.site.index_title = "Procurement Management System"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+    path('', include('accounts.urls')),
+
 ]
