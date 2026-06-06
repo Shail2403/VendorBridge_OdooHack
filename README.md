@@ -21,7 +21,6 @@ Procurement & Vendor Management ERP
 - Vendor
 
 ## Workflow
-
 Vendor Registration
 → RFQ Creation
 → Quotation Submission
